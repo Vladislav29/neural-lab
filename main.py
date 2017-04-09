@@ -2,21 +2,32 @@ import neural
 
 b = neural.neural()
 f = 0
-w = [0, 0, 0, 0]
+w = [1, 1, 1, 1]
 dw = [0, 0, 0, 0]
 k = 0
-i = 0
+i = 2
 
-if b.bool_func(b.bit(7)) == True:
-    print 1
+if b.bool_func(b.bit(1)) == True:
+    h = 1
+    print(h)
 else:
-    print 0
+    h = 0
+    print(h)
 
-while k < 50:
-    while i < 15:
-        v = b.bit(i)
-        h = b.bool_func(v)
+v = b.bit(i)
+g = b.net(f, v, w)
+s = b.check_error(h, g)
 
-print b.bit(15)
-print b.bool_func(b.bit(7))
-print b.net(f, [1, 1, 1, 1], [1, 1, 1, 1])
+if s != 0:
+    dw.append(b.hoff(v, s))
+    w.append(b.weight(w, dw))
+    print(dw)
+else:
+    print('ok')
+
+print g
+print v
+print s
+#print b.bit(15)
+#print b.bool_func(b.bit(7))
+#print b.net(f, [1, 1, 1, 1], [1, 1, 1, 1])
