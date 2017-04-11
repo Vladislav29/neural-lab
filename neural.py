@@ -6,6 +6,7 @@ class neural:
     global f
     global dw
     n = 0.3
+    dw = [0, 0, 0, 0,]
 
     def bool_func(self, x):
         return  bool(x[0]) or not(x[1]) or not(x[2] or x[3])
@@ -35,14 +36,15 @@ class neural:
         return b
 
     def hoff(self, x, b):
-        dw = []
         for i in range(0, 3):
+            dw.pop(i)
             dw[i] = n * b * x[i]
-            dw.append(dw[i])
+            dw.insert(i, dw[i])
         return dw
 
     def weight(self, w, dw):
         for i in range(0, 3):
             w[i] = w[i] + dw[i]
-            w.append(w[i])
+            w.pop(i + 1)
+            w.insert(i, w[i])
         return w
