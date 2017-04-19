@@ -34,3 +34,5 @@ class neural:
 
     def get_w(self):
         return self.w
+
+    

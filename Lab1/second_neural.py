@@ -32,9 +32,9 @@ class second_neural:
     def check_error(self, t, y):
         return t - y != 0
 
-    def hoff(self, x, b):
+    def hoff(self, x, b, net):
         for i in range(len(self.w)):
-            self.w[i] += self.n * x[i] * b
+            self.w[i] += self.n * x[i] * b * net * (1 - net)
 
     def get_w(self):
         return self.w
