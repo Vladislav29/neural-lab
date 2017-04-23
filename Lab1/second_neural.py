@@ -13,7 +13,7 @@ class second_neural:
     def active_func(self, y):
         t = 0
         t = 0.5 * (math.tanh(y) + 1)
-        return 1 if y >= 0.5 else 0
+        return 1 if t >= 0.5 else 0
 
     def net(self, x):
         net = 0

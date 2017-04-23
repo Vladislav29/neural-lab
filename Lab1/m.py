@@ -12,5 +12,5 @@ while errors != 0:
         g = l.active_func(l.net(v))
         if l.check_error(h, g):
             errors += 1
-            l.hoff(v, h - g, q)
+            l.hoff(v, h - g, g)
 print l.get_w()
